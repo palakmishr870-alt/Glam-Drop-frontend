@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlamDrop – Premium Fashion & Lifestyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated Splash Screen with Iconic Tulip + GD Monogram -->
+  <div id="splash" aria-hidden="true">
+    <div class="splash-card">
+      <div class="splash-emblem-wrap">
+        <svg class="splash-logo" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="GlamDrop Iconic Tulip Logo">
+          <defs>
+            <linearGradient id="tulipGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F5B041"/>
+              <stop offset="50%" stop-color="#FAD7A0"/>
+              <stop offset="100%" stop-color="#D4AC0D"/>
+            </linearGradient>
+            <linearGradient id="tulipPetalCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF758C"/>
+              <stop offset="100%" stop-color="#FF3E6C"/>
+            </linearGradient>
+            <linearGradient id="tulipPetalLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF5277"/>
+              <stop offset="100%" stop-color="#E0245E"/>
+            </linearGradient>
+            <linearGradient id="tulipPetalRight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF3E6C"/>
+              <stop offset="100%" stop-color="#C2185B"/>
+            </linearGradient>
+            <filter id="tulipShadow" x="-15%" y="-15%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#FF3E6C" flood-opacity="0.25"/>
+            </filter>
+          </defs>
+          
+          <!-- Outer circular luxury medallion ring -->
+          <circle cx="70" cy="70" r="66" stroke="url(#tulipGold)" stroke-width="1.8" opacity="0.85" />
+          <circle cx="70" cy="70" r="61" stroke="#FFFFFF" stroke-width="1.2" opacity="0.7" />
+          <circle cx="70" cy="70" r="57" fill="#FAF7F2" stroke="#FF3E6C" stroke-width="1" stroke-dasharray="3 3" opacity="0.3" />
+          
+          <!-- Iconic Blooming Tulip Flower 🌷 -->
+          <g id="tulipBloom" filter="url(#tulipShadow)">
+            <!-- Center Petal -->
+            <path d="M70 18 C62 30 61 46 70 60 C79 46 78 30 70 18 Z" fill="url(#tulipPetalCenter)" />
+            <!-- Left Tulip Cup Petal -->
+            <path d="M70 60 C50 60 38 42 41 26 C47 24 57 28 64 42 C67 49 69 55 70 60 Z" fill="url(#tulipPetalLeft)" opacity="0.95" />
+            <!-- Right Tulip Cup Petal -->
+            <path d="M70 60 C90 60 102 42 99 26 C93 24 83 28 76 42 C73 49 71 55 70 60 Z" fill="url(#tulipPetalRight)" opacity="0.95" />
+            <!-- Golden Pistil Sparkle -->
+            <circle cx="70" cy="35" r="2.5" fill="url(#tulipGold)" />
+            <circle cx="65" cy="32" r="1.5" fill="#FFF9E6" />
+            <circle cx="75" cy="32" r="1.5" fill="#FFF9E6" />
+            <!-- Tulip Curved Stem -->
+            <path d="M70 60 C70 72 68 84 64 92" stroke="url(#tulipGold)" stroke-width="3" stroke-linecap="round" />
+            <!-- Tulip Leaf Arching Left -->
+            <path d="M68 76 C55 68 44 72 40 82 C49 84 60 82 66 77 Z" fill="url(#tulipGold)" opacity="0.9" />
+          </g>
+
+          <!-- GD Monogram flanking the stem -->
+          <text x="44" y="98" text-anchor="middle" fill="var(--color-text)" font-family="Playfair Display" font-size="22" font-weight="700">G</text>
+          <text x="96" y="98" text-anchor="middle" fill="var(--color-cta)" font-family="Playfair Display" font-size="22" font-weight="700">D</text>
+
+          <!-- Base underline & gem -->
+          <path d="M54 108 L86 108" stroke="url(#tulipGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.7" />
+          <circle cx="70" cy="108" r="2" fill="var(--color-cta)" />
+        </svg>
+      </div>
+      <h1 class="splash-title">GlamDrop</h1>
+      <p class="splash-tagline">Pure Aesthetic • Timeless Lifestyle</p>
+      <div class="splash-loader"><div class="loader-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Main Website Content -->
+  <div id="app" class="hidden" tabindex="-1">
+    <!-- Top Announcement Ribbon -->
+    <div class="top-ribbon">
+      <span>✨ End of Season Glam Fest: Flat 20% OFF with code <strong>GLAM20</strong> | Free Express Shipping & 7-Day Returns ✨</span>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header-sticky">
+      <nav class="navbar" aria-label="Primary navigation">
+        <div class="nav-left">
+          <a href="#" class="brand" aria-label="GlamDrop home">
+            <!-- Navbar Tulip + GD Monogram SVG -->
+            <svg class="brand-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44" aria-hidden="true">
+              <defs>
+                <linearGradient id="navTulipGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#F5B041"/>
+                  <stop offset="100%" stop-color="#D4AC0D"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="46" stroke="url(#navTulipGold)" stroke-width="1.8" fill="#FAF7F2" />
+              <circle cx="50" cy="50" r="41" stroke="#FF3E6C" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.35" />
+              <!-- Tulip Blossom -->
+              <g id="navTulipBloom">
+                <path d="M50 14 C44 23 43 33 50 43 C57 33 56 23 50 14 Z" fill="#FF758C" />
+                <path d="M50 43 C35 43 27 30 29 19 C33 17 41 20 46 30 C48 35 49 39 50 43 Z" fill="#FF3E6C" />
+                <path d="M50 43 C65 43 73 30 71 19 C67 17 59 20 54 30 C52 35 51 39 50 43 Z" fill="#D81B60" />
+                <path d="M50 43 C50 52 48 60 46 66" stroke="url(#navTulipGold)" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M49 54 C39 48 31 51 28 58 C35 60 43 58 48 55 Z" fill="url(#navTulipGold)" />
+              </g>
+              <text x="32" y="76" text-anchor="middle" fill="var(--color-text)" font-family="Playfair Display" font-size="16" font-weight="700">G</text>
+              <text x="68" y="76" text-anchor="middle" fill="var(--color-cta)" font-family="Playfair Display" font-size="16" font-weight="700">D</text>
+              <circle cx="50" cy="84" r="1.8" fill="url(#navTulipGold)" />
+            </svg>
+            <div class="brand-info">
+              <span class="brand-name">GlamDrop</span>
+              <span class="brand-badge">FASHION STUDIO</span>
+            </div>
+          </a>
+
+          <!-- Live Search Bar -->
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="search" placeholder="Search for dresses, kurta, shirts, bags, heels..." aria-label="Search products" autocomplete="off" />
+            <button id="searchClearBtn" class="search-clear hidden" title="Clear search">&times;</button>
+          </div>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="nav-right">
+          <div class="user-greeting">
+            <span class="greet-sub">Welcome</span>
+            <span class="greet-main">Aesthetic Living</span>
+          </div>
+
+          <button class="nav-icon-btn" id="wishlistBtn" aria-label="Wishlist" aria-controls="wishlistDrawer" aria-expanded="false" title="Wishlist">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span class="badge" id="wishlistCount">0</span>
+            </div>
+            <span class="btn-caption">Wishlist</span>
+          </button>
+
+          <button class="nav-icon-btn" id="cartBtn" aria-label="Shopping bag" aria-controls="cartDrawer" aria-expanded="false" title="Bag">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span class="badge" id="cartCount">0</span>
+            </div>
+            <span class="btn-caption">Bag</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Circular Category Story Bar (Myntra/Flipkart Style Circles) -->
+      <nav class="category-stories-bar" aria-label="Visual Categories">
+        <div class="stories-scroll">
+          <button class="story-circle-item active" data-category="All">
+            <div class="story-avatar">✨</div>
+            <span>All Fits</span>
+          </button>
+          <button class="story-circle-item" data-category="Women">
+            <div class="story-avatar">👗</div>
+            <span>Dresses</span>
+          </button>
+          <button class="story-circle-item" data-category="Ethnic">
+            <div class="story-avatar">🥻</div>
+            <span>Ethnic Suits</span>
+          </button>
+          <button class="story-circle-item" data-category="Men">
+            <div class="story-avatar">👔</div>
+            <span>Men's Fits</span>
+          </button>
+          <button class="story-circle-item" data-category="Footwear">
+            <div class="story-avatar">👟</div>
+            <span>Footwear</span>
+          </button>
+          <button class="story-circle-item" data-category="Bags">
+            <div class="story-avatar">👜</div>
+            <span>Handbags</span>
+          </button>
+          <button class="story-circle-item" data-category="Accessories">
+            <div class="story-avatar">💍</div>
+            <span>Jewellery</span>
+          </button>
+          <button class="story-circle-item" data-category="Stationery">
+            <div class="story-avatar">🎁</div>
+            <span>Cute Finds</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Promotional Hero Banner Carousel -->
+    <section class="hero-section">
+      <div class="hero-card">
+        <div class="hero-badge">NEW SEASON 2026</div>
+        <h1>Curated Haute Aesthetics For Everyday Glam</h1>
+        <p>Breathable linen shirts, floral silk dresses, handcrafted leather totes, and charming stationery. 100% human-designed aesthetics.</p>
+        <div class="hero-actions">
+          <button class="cta-btn" onclick="applyCategory('Women'); document.getElementById('catalogSection').scrollIntoView({behavior:'smooth'});">Explore Women</button>
+          <button class="cta-outline-btn" onclick="applyCategory('Men'); document.getElementById('catalogSection').scrollIntoView({behavior:'smooth'});">Explore Men</button>
+          <button class="cta-text-btn" onclick="applyQuickFilter('under1999'); document.getElementById('catalogSection').scrollIntoView({behavior:'smooth'});">Dresses Under ₹1,999 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalog Controls & Quick Filter Chips -->
+    <section class="catalog-header" id="catalogSection">
+      <div class="catalog-left-header">
+        <div class="catalog-title-group">
+          <h2 id="catalogTitle">Trending Collections</h2>
+          <span class="catalog-count" id="catalogCount">Showing all items</span>
+        </div>
+        
+        <!-- Quick Filter Chips -->
+        <div class="quick-filter-chips">
+          <button class="chip-btn active" data-chip="all">All Items</button>
+          <button class="chip-btn" data-chip="bestseller">🔥 Bestsellers</button>
+          <button class="chip-btn" data-chip="under1999">🏷️ Under ₹1,999</button>
+          <button class="chip-btn" data-chip="highrating">⭐ 4.5+ Rating</button>
+          <button class="chip-btn" data-chip="bigdiscount">💥 40%+ OFF</button>
+        </div>
+      </div>
+
+      <div class="catalog-filters">
+        <div class="sort-box">
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect" aria-label="Sort products">
+            <option value="default">Featured / Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating-desc">Customer Rating (Highest)</option>
+            <option value="discount-desc">Biggest Discount (%)</option>
+          </select>
+        </div>
+        <button id="clearFilters" class="clear-filters-btn" title="Reset all filters">Reset</button>
+      </div>
+    </section>
+
+    <!-- 3:4 Aspect Ratio Product Grid -->
+    <main id="productGrid" class="product-grid" aria-live="polite"></main>
+
+    <!-- Real E-Commerce Trust Badges -->
+    <section class="trust-highlights">
+      <div class="trust-card">
+        <div class="trust-icon">✨</div>
+        <h3>100% Original Products</h3>
+        <p>Direct authentic curation with fine stitching and breathable fabrics.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🚚</div>
+        <h3>Free Express Delivery</h3>
+        <p>Dispatched in 24 hours with live SMS & WhatsApp tracking updates.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🔄</div>
+        <h3>7-Day Doorstep Returns</h3>
+        <p>Instant refunds & no-questions-asked pickup at your doorstep.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🔒</div>
+        <h3>Safe & Secure Checkout</h3>
+        <p>UPI, Credit/Debit cards, Netbanking & Cash on Delivery supported.</p>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-col brand-col">
+          <div class="brand footer-brand">
+            <span class="brand-name">GlamDrop</span>
+          </div>
+          <p>Where feminine warmth meets modern lifestyle luxury. Designed for effortless grace in every wardrobe piece.</p>
+          <div class="newsletter-box">
+            <label for="newsletterEmail">Get 10% off your first order:</label>
+            <div class="newsletter-input-wrap">
+              <input type="email" id="newsletterEmail" placeholder="Enter your email" />
+              <button class="cta-btn small" onclick="alert('💌 Thank you! Check your inbox for your 10% welcome coupon.'); document.getElementById('newsletterEmail').value='';">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul>
+            <li><a href="#" onclick="applyCategory('Women');return false;">Women's Western Dresses</a></li>
+            <li><a href="#" onclick="applyCategory('Ethnic');return false;">Handcrafted Ethnic Suits</a></li>
+            <li><a href="#" onclick="applyCategory('Men');return false;">Men's Linen Shirts & Chinos</a></li>
+            <li><a href="#" onclick="applyCategory('Footwear');return false;">Court Sneakers & Heels</a></li>
+            <li><a href="#" onclick="applyCategory('Bags');return false;">Handbags & Laptop Totes</a></li>
+            <li><a href="#" onclick="applyCategory('Stationery');return false;">Cute Planners & Candles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="#" onclick="alert('Live Track: Enter your Order ID in the track box');return false;">Track Your Order</a></li>
+            <li><a href="#" onclick="alert('Free Shipping applies automatically on all orders above ₹499!');return false;">Shipping & Delivery</a></li>
+            <li><a href="#" onclick="alert('7-day doorstep return available directly from your order page.');return false;">Returns & Exchanges</a></li>
+            <li><a href="#" onclick="alert('Customer support available 24/7 at support@glamdrop.com');return false;">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 GlamDrop Lifestyle Studio Ltd. All rights reserved. Handcrafted with love & elegance.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Cart Drawer (With Working Coupons & Live Price Calculation) -->
+  <aside id="cartDrawer" class="drawer" aria-hidden="true" aria-labelledby="cartTitle">
+    <div class="drawer-header">
+      <h2 id="cartTitle">Shopping Bag (<span id="cartBadgeInline">0</span>)</h2>
+      <button class="drawer-close" id="closeCartBtn" aria-label="Close bag">&times;</button>
+    </div>
+
+    <!-- Free Delivery Threshold Banner -->
+    <div class="shipping-threshold-bar" id="shippingThresholdBar">
+      <span class="threshold-txt" id="thresholdText">Add items for FREE Delivery!</span>
+      <div class="threshold-track">
+        <div class="threshold-progress" id="thresholdProgress"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body">
+      <ul id="cartItems" class="drawer-list"></ul>
+      
+      <div id="cartEmptyState" class="empty-state hidden">
+        <div class="empty-icon">🛍️</div>
+        <h3>Your bag is empty</h3>
+        <p>Explore our trending catalog to add lovely pieces!</p>
+        <button class="cta-btn small" onclick="closeDrawer(document.getElementById('cartDrawer'))">Start Shopping</button>
+      </div>
+    </div>
+
+    <div class="drawer-footer" id="cartFooter">
+      <!-- Coupon Code Section -->
+      <div class="coupon-section">
+        <div class="coupon-input-wrap">
+          <input type="text" id="couponInput" placeholder="Enter Promo Code (GLAM20)" uppercase />
+          <button id="applyCouponBtn" class="coupon-apply-btn">Apply</button>
+        </div>
+        <div id="activeCouponBadge" class="active-coupon-badge hidden">
+          <span>🎉 Code <strong>GLAM20</strong> Applied (20% OFF)</span>
+          <button id="removeCouponBtn" title="Remove coupon">✕</button>
+        </div>
+        <div class="quick-coupon-pills">
+          <button class="coupon-chip" onclick="applyCouponDirect('GLAM20')">GLAM20 (20% OFF)</button>
+          <button class="coupon-chip" onclick="applyCouponDirect('FIRSTBUY')">FIRSTBUY (₹300 OFF)</button>
+        </div>
+      </div>
+
+      <div class="summary-breakdown">
+        <div class="summary-row">
+          <span>Bag Total (MRP)</span>
+          <span id="cartMrp">₹0</span>
+        </div>
+        <div class="summary-row discount-row" id="productDiscountRow">
+          <span>Product Discount</span>
+          <span class="green-txt" id="cartProductDiscount">-₹0</span>
+        </div>
+        <div class="summary-row discount-row hidden" id="couponSavingsRow">
+          <span>Coupon Savings</span>
+          <span class="green-txt" id="cartCouponDiscount">-₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Delivery Fee</span>
+          <span class="free-badge" id="deliveryFeeTxt">FREE</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Grand Total</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
+      </div>
+
+      <button class="checkout-btn" id="openCheckoutModalBtn">Proceed to Checkout →</button>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <aside id="wishlistDrawer" class="drawer" aria-hidden="true" aria-labelledby="wishlistTitle">
+    <div class="drawer-header">
+      <h2 id="wishlistTitle">My Wishlist (<span id="wishlistBadgeInline">0</span>)</h2>
+      <button class="drawer-close" id="closeWishlistBtn" aria-label="Close wishlist">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <ul id="wishlistItems" class="drawer-list"></ul>
+      <div id="wishlistEmptyState" class="empty-state hidden">
+        <div class="empty-icon">💖</div>
+        <h3>No wishlist items yet</h3>
+        <p>Save items you adore by tapping the heart icon on any card.</p>
+        <button class="cta-btn small" onclick="closeDrawer(document.getElementById('wishlistDrawer'))">Explore Finds</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Product Detail Modal (With Pincode Checker & Size Selector) -->
+  <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-container">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close">&times;</button>
+      <div class="modal-image-col">
+        <img id="modalImg" src="" alt="Product detail" />
+        <span id="modalDiscountBadge" class="modal-disc-tag"></span>
+      </div>
+      <div class="modal-info-col">
+        <div class="modal-brand" id="modalBrand"></div>
+        <h2 id="modalTitle"></h2>
+        
+        <div class="modal-rating-badge">
+          <span id="modalRating"></span>
+          <span class="rating-review-txt">| Verified Buyer Reviews</span>
+        </div>
+
+        <div class="modal-price-row">
+          <span class="modal-current-price" id="modalPriceCurrent"></span>
+          <span class="modal-original-price" id="modalPriceOld"></span>
+          <span class="modal-discount-percent" id="modalDiscountPercent"></span>
+        </div>
+        <span class="tax-note">Price inclusive of all taxes</span>
+
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <!-- Stock Urgency -->
+        <div class="stock-urgency-note">
+          🔥 <strong id="stockUrgencyTxt">In Stock - Ready to Dispatch</strong>
+        </div>
+
+        <div id="modalOptions" class="modal-options-wrap"></div>
+
+        <!-- Delivery Pincode Checker -->
+        <div class="pincode-checker-box">
+          <span class="pincode-label">📍 Check Delivery & COD</span>
+          <div class="pincode-input-row">
+            <input type="text" id="pincodeInput" placeholder="Enter 6-digit Pincode (e.g. 110001)" maxlength="6" />
+            <button id="pincodeCheckBtn">Check</button>
+          </div>
+          <p id="pincodeResult" class="pincode-result hidden"></p>
+        </div>
+
+        <div class="modal-actions-wrap">
+          <button class="cta-btn modal-cart-btn" id="modalAddToCart">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path></svg>
+            Add to Bag
+          </button>
+          <button class="modal-wish-btn" id="modalWishBtn">
+            <span id="modalWishHeart">♡</span> Wishlist
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real Checkout Modal (Address & Payment Options) -->
+  <div id="checkoutModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" tabindex="-1">
+    <div class="modal-backdrop" onclick="closeCheckoutModal()"></div>
+    <div class="modal-container checkout-container">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()" aria-label="Close">&times;</button>
+      
+      <div class="checkout-content">
+        <h2 id="checkoutTitle" class="checkout-heading">Complete Your Order</h2>
+        <p class="checkout-sub">Fast, secure 256-bit encrypted checkout.</p>
+
+        <form id="checkoutForm" onsubmit="handlePlaceOrder(event)">
+          <div class="checkout-section-title">1. Shipping Address</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="custName">Full Name *</label>
+              <input type="text" id="custName" required placeholder="e.g. Tanya Sharma" value="Tanya Sharma" />
+            </div>
+            <div class="form-group">
+              <label for="custPhone">Phone Number *</label>
+              <input type="tel" id="custPhone" required placeholder="10-digit Mobile" value="9876543210" />
+            </div>
+            <div class="form-group full-width">
+              <label for="custAddress">Delivery Address *</label>
+              <input type="text" id="custAddress" required placeholder="Flat/House No., Street, Area" value="Flat 402, Lotus Orchid Apts, Indiranagar" />
+            </div>
+            <div class="form-group">
+              <label for="custCity">City *</label>
+              <input type="text" id="custCity" required placeholder="City" value="Bengaluru" />
+            </div>
+            <div class="form-group">
+              <label for="custPincode">PIN Code *</label>
+              <input type="text" id="custPincode" required maxlength="6" placeholder="6-digit Pincode" value="560038" />
+            </div>
+          </div>
+
+          <div class="checkout-section-title" style="margin-top: 1.5rem;">2. Payment Method</div>
+          <div class="payment-methods-group">
+            <label class="payment-option selected">
+              <input type="radio" name="paymentMethod" value="upi" checked />
+              <span class="pay-icon">⚡</span>
+              <div class="pay-info">
+                <strong>UPI Instant Pay</strong>
+                <span>Google Pay, PhonePe, Paytm, BHIM</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="card" />
+              <span class="pay-icon">💳</span>
+              <div class="pay-info">
+                <strong>Credit / Debit Card</strong>
+                <span>Visa, Mastercard, RuPay, Amex</span>
+              </div>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentMethod" value="cod" />
+              <span class="pay-icon">💵</span>
+              <div class="pay-info">
+                <strong>Cash on Delivery (COD)</strong>
+                <span>Pay securely at your doorstep</span>
+              </div>
+            </label>
+          </div>
+
+          <div class="checkout-order-summary">
+            <div class="summary-line">
+              <span>Total Payable Amount:</span>
+              <strong id="checkoutFinalAmount">₹0</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="cta-btn full-width place-order-btn">Confirm & Place Order 💕</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Success Modal -->
+  <div id="orderSuccessModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">
+    <div class="modal-backdrop" onclick="closeOrderSuccessModal()"></div>
+    <div class="modal-container order-success-card">
+      <div class="success-icon-wrap">🎉</div>
+      <h2>Order Placed Successfully!</h2>
+      <p class="success-order-id">Order ID: <strong id="successOrderId">GD-849201</strong></p>
+      <p class="success-msg">Thank you for shopping with GlamDrop. We're hand-packing your lovely items with utmost care.</p>
+      
+      <!-- Live Order Tracking Steps -->
+      <div class="tracking-timeline">
+        <div class="track-step active">
+          <div class="step-dot"></div>
+          <span>Confirmed</span>
+        </div>
+        <div class="track-line"></div>
+        <div class="track-step active">
+          <div class="step-dot"></div>
+          <span>Packed</span>
+        </div>
+        <div class="track-line"></div>
+        <div class="track-step">
+          <div class="step-dot"></div>
+          <span>Shipped</span>
+        </div>
+        <div class="track-line"></div>
+        <div class="track-step">
+          <div class="step-dot"></div>
+          <span>Delivered</span>
+        </div>
+      </div>
+
+      <p class="delivery-eta" id="successEtaTxt">Estimated Delivery: <strong>Wednesday by 5:00 PM</strong></p>
+      
+      <button class="cta-btn" onclick="closeOrderSuccessModal()">Continue Shopping ✨</button>
+    </div>
+  </div>
+
+  <!-- Toast Feedback Container -->
+  <div id="toastContainer" class="toast-container" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
